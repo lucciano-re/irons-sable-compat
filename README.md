@@ -1,4 +1,4 @@
-Here's a git description you can use for the README or repository description:
+Here's a git description you can use for the README or repository description: (irony)
 
 ---
 
