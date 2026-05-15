@@ -1,0 +1,56 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.+'
+}
+
+base {
+    archivesName = project.mod_id
+    version = project.mod_version
+}
+
+neoForge {
+    version = project.neoforge_version
+    mods {
+        ironssablecompat {
+            sourceSet sourceSets.main
+        }
+    }
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            programArgument '--nogui'
+        }
+    }
+}
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                url = "https://maven.ryanhcode.dev/releases"
+                name = "RyanHCode Maven"
+            }
+        }
+        filter {
+            includeGroup("dev.ryanhcode.sable")
+            includeGroup("dev.ryanhcode.sable-companion")
+        }
+    }
+    maven {
+        url = "https://www.cursemaven.com"
+    }
+}
+
+dependencies {
+    // Sable Companion - JiJ'd so it ships inside your mod
+    jarJar(api("dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:[1.0,)")) {
+        version { prefer project.sable_companion_version }
+    }
+
+    // Iron's Spells - implementation so it loads at runtime during dev
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:7907341"
+}
