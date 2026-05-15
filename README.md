@@ -1,6 +1,7 @@
 Here's a git description you can use for the README or repository description: (irony)
 
 ---
+fixes teleport, frost step, blood step and dig spells. Portal spell and frame work as well, a big buggy to call fixed but at least no longer crash.
 
 **Iron's Spells x Sable Compat**
 
@@ -8,7 +9,7 @@ Here's a git description you can use for the README or repository description: (
 
 Fixes teleport spells from Iron's Spells 'n Spellbooks breaking when used on or near assembled Create Aeronautics / Sable physics ships on NeoForge 1.21.1.
 
-Sable stores physics contraptions in hidden sub-levels with extreme plot coordinates. Iron's Spells teleport spells (Teleport, Blood Step, Abyssal Shroud) are unaware of this, causing players to teleport to the wrong location or crash when a ship is involved. This mod uses the Sable Companion API to intercept and remap teleport coordinates correctly.
+Sable stores physics contraptions in hidden sub-levels with extreme plot coordinates. Iron's Spells that interact physically (Teleport, Blood Step, Abyssal Shroud, portal, touch dig) are unaware of this, causing players to teleport to the wrong location or crash when a ship is involved. This mod uses the Sable Companion API to intercept and remap teleport coordinates correctly.
 
 **This mod will become obsolete once Iron's Spells or Sable ships an official fix. Check both projects before using this.**
 
