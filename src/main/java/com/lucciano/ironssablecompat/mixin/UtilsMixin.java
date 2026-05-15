@@ -39,7 +39,7 @@ public class UtilsMixin {
         System.out.println("[IronsSableCompat] subLevel=" + subLevel);
 
         if (subLevel != null) {
-            Vec3 local = subLevel.logicalPose().transformPosition(realWorldDest);
+            Vec3 local = subLevel.logicalPose().transformPositionInverse(realWorldDest);
             System.out.println("[IronsSableCompat] projected into subLevel: " + local);
             dest = local;
         } else {

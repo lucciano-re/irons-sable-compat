@@ -5,7 +5,11 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "ironssablecompat.refmap.json",
   "mixins": [
-    "UtilsMixin"
+    "UtilsMixin",
+    "PortalEntityMixin",
+    "PortalSpellMixin",
+    "TouchDigSpellMixin",
+    "PortalFrameBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,4 +1,49 @@
 {
   "version": "0.2.0",
-  "configurations": []
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - irons-sable-compat",
+        "order": 0
+      },
+      "projectName": "irons-sable-compat",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/luchho/compatibility progect/irons-sable-compat/build/moddev/clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/luchho/compatibility progect/irons-sable-compat/build/moddev/clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dironssablecompat%%/home/luchho/compatibility progect/irons-sable-compat/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - irons-sable-compat",
+        "order": 1
+      },
+      "projectName": "irons-sable-compat",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/luchho/compatibility progect/irons-sable-compat/build/moddev/serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/luchho/compatibility progect/irons-sable-compat/build/moddev/serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dironssablecompat%%/home/luchho/compatibility progect/irons-sable-compat/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
 }

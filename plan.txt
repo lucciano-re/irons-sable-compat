@@ -1,0 +1,5 @@
+1. The bug is in `PortalEntityMixin.java` inside `ironssablecompat$getActualDestination`.
+2. When the destination portal is a block frame, `getEntity()` returns null, so it falls back to the coordinate projection logic.
+3. If the stored coordinate (`originalDest`) is already an extreme sub-level coordinate (because our `PortalFrameBlockEntityMixin` updated it!), `getContaining` returns null, and `projectOutOfSubLevel` projects it back to the Real-World empty air space.
+4. The player is then teleported to the empty air in the Real-World, falling into the void.
+5. Fix: In `ironssablecompat$getActualDestination`, if `originalDest` is already an extreme coordinate (which we can detect if `projectOutOfSubLevel(originalDest)` differs from `originalDest`), we should return `originalDest` unmodified!
