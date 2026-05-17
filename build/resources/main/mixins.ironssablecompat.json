@@ -9,7 +9,8 @@
     "PortalEntityMixin",
     "PortalSpellMixin",
     "TouchDigSpellMixin",
-    "PortalFrameBlockEntityMixin"
+    "PortalFrameBlockEntityMixin",
+    "RaycastBuilderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

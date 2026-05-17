@@ -24,14 +24,25 @@ public class PortalSpellMixin {
         Level level = args.get(0);
         Vec3 spawnPos = args.get(3);
         
-        SubLevelAccess subLevel = SableCompanion.INSTANCE.getContaining(level, spawnPos);
-        Vec3 dest = SableCompanion.INSTANCE.projectOutOfSubLevel(level, spawnPos);
+        Vec3 projected = SableCompanion.INSTANCE.projectOutOfSubLevel(level, spawnPos);
+        Vec3 dest = spawnPos;
         
-        if (subLevel != null) {
-            // CRITICAL: Use transformPositionInverse to correctly map RealWorld to SubLevel extreme coordinates!
-            // This physically spawns the portal IN the sub-level so it sticks to the ship.
-            dest = subLevel.logicalPose().transformPositionInverse(dest);
+        if (projected.distanceToSqr(spawnPos) > 0.01) {
+            // It's already an extreme coordinate on a ship, leave it alone!
+            dest = spawnPos;
+        } else {
+            SubLevelAccess subLevel = SableCompanion.INSTANCE.getContaining(level, spawnPos);
+            if (subLevel == null) {
+                // The portal spawns slightly above the floor. If it's just outside the bounding box, check slightly below!
+                subLevel = SableCompanion.INSTANCE.getContaining(level, spawnPos.add(0, -0.5, 0));
+            }
+            if (subLevel != null) {
+                // If it's real world but inside a ship's bounds, spawn it inside the ship
+                dest = subLevel.logicalPose().transformPositionInverse(spawnPos);
+            }
         }
+        
+        System.out.println("[IronsSableCompat] PortalEntity spawning at: " + dest + " (original spawnPos: " + spawnPos + ")");
         
         args.set(3, dest);
     }
