@@ -4,7 +4,7 @@ license = "MIT"
 
 [[mods]]
 modId = "ironssablecompat"
-version = "1.0.0"
+version = "1.0.2"
 displayName = "Iron's Spells x Sable Compat"
 description = "Fixes Iron's Spells teleport spells breaking on Sable/Aeronautics ships."
 
