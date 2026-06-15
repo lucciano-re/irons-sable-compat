@@ -32,7 +32,7 @@ public class PortalFrameBlockMixin {
             return original.call(shape, x, y, z);
         }
 
-        Vec3 p = SableCompanion.INSTANCE.projectOutOfSubLevel(level, pos.getBottomCenter());
+        Vec3 p = SableCompanion.INSTANCE.projectOutOfSubLevel(level, new Vec3(x, y, z));
         return original.call(shape, p.x, p.y, p.z);
     }
 }

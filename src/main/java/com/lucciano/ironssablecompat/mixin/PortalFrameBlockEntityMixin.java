@@ -2,11 +2,9 @@ package com.lucciano.ironssablecompat.mixin;
 import io.redspace.ironsspellbooks.block.portal_frame.PortalFrameBlockEntity;
 import io.redspace.ironsspellbooks.capabilities.magic.PortalManager;
 import io.redspace.ironsspellbooks.entity.spells.portal.PortalData;
-import io.redspace.ironsspellbooks.entity.spells.portal.PortalEntity;
 import io.redspace.ironsspellbooks.entity.spells.portal.PortalPos;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -34,17 +32,6 @@ public class PortalFrameBlockEntityMixin {
                 } else {
                     portalData.globalPos2 = newPos;
                 }
-                // Keep portal entities in sync with the frame when the ship moves
-                teleportPortalEntity(serverLevel, portalData.portalEntityId1, extremeLoc);
-                teleportPortalEntity(serverLevel, portalData.portalEntityId2, extremeLoc);
-            }
-        }
-    }
-    private static void teleportPortalEntity(ServerLevel level, UUID portalEntityId, Vec3 pos) {
-        if (portalEntityId != null) {
-            Entity e = level.getEntity(portalEntityId);
-            if (e instanceof PortalEntity) {
-                e.teleportTo(pos.x, pos.y, pos.z);
             }
         }
     }
