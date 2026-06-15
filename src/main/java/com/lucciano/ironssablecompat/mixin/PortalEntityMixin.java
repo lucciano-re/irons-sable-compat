@@ -36,7 +36,7 @@ public class PortalEntityMixin {
             instance.teleportTo(x, y, z);
             return;
         }
-        Vec3 resolved = SableUnloadedSubLevelCompat.resolveDestination(level, new Vec3(x, y, z));
+        Vec3 resolved = SableUnloadedSubLevelCompat.resolveDestination(level, new Vec3(x, y+0.5, z));
         instance.teleportTo(resolved.x, resolved.y, resolved.z);
     }
 
